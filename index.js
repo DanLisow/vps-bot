@@ -13,9 +13,9 @@ const TOKEN = "1394592988:AAEGt-VkIR1nMPXbZwTGqi22MpF8b3zipdo";
 
 const connection = mysql.createConnection({
   host: "eu-cdbr-west-03.cleardb.net",
-  user: "b024625ea41b6a",
-  password: "ce58c842",
-  database: "heroku_aaa4835f26aeb9d",
+  user: "bbc710b34d0fae",
+  password: "ad75e2aa",
+  database: "heroku_960339d4edbba66",
 });
 
 const keyboard = new Keyboard();
