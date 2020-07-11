@@ -175,9 +175,9 @@ const bot = new Telegraf(TOKEN);
 
 bot.use(session());
 bot.use(stage.middleware());
-
+//https://53c7e39275ba.ngrok.io
 require("http")
-  .createServer(bot.webhookCallback("https://53c7e39275ba.ngrok.io"))
+  .createServer(bot.webhookCallback("https://telegram-bot-sharaga.herokuapp.com/"))
   .listen(3000);
 
 bot.start((ctx) =>
