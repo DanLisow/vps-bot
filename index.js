@@ -6,17 +6,17 @@ const session = require("telegraf/session");
 const Stage = require("telegraf/stage");
 const Scene = require("telegraf/scenes/base");
 const WizardScene = require("telegraf/scenes/wizard");
-// const mysql = require("mysql");
+const mysql = require("mysql");
 const { leave } = Stage;
 
 const TOKEN = "1394592988:AAEGt-VkIR1nMPXbZwTGqi22MpF8b3zipdo";
 
-// const connection = mysql.createConnection({
-//   host: "localhost",
-//   user: "root",
-//   password: "root",
-//   database: "telegraf",
-// });
+const connection = mysql.createConnection({
+  host: "eu-cdbr-west-03.cleardb.net",
+  user: "b024625ea41b6a",
+  password: "ce58c842",
+  database: "heroku_aaa4835f26aeb9d",
+});
 
 const keyboard = new Keyboard();
 keyboard.add("Документы").add("Контакты", "FAQ").add("Записаться на защиту");
@@ -150,12 +150,12 @@ const post = new WizardScene(
     else {
       ctx.reply("Ответ записан!");
 
-//       connection.connect(() => {
-//         connection.query(
-//           `INSERT INTO schedule (id, team, data, time) VALUES (NULL, '${ctx.wizard.state.team}', '${ctx.wizard.state.data}', '${ctx.wizard.state.time}')`
-//         );
-//         connection.query("SET SESSION wait_timeout = 604800");
-//       });
+      connection.connect(() => {
+        connection.query(
+          `INSERT INTO schedule (id, team, data, time) VALUES (NULL, '${ctx.wizard.state.team}', '${ctx.wizard.state.data}', '${ctx.wizard.state.time}')`
+        );
+        connection.query("SET SESSION wait_timeout = 604800");
+      });
       ctx.scene.leave();
       console.log(ctx.wizard.state);
     }
