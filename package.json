@@ -12,7 +12,10 @@
     "nodemon": "^2.0.4"
   },
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": "14.4.0"
   },
   "author": "",
   "license": "ISC"

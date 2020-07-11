@@ -75,6 +75,23 @@ faq.hears("Назад", leave());
 
 const stepHandler = new Composer();
 
+notes = [
+  {
+    time: "1:24",
+    message: "Нужно сделать того самое",
+  },
+];
+
+stepHandler.use(async (ctx, next) => {
+  setInterval(() => {
+    const curDate = new Date().getHours() + ":" + new Date().getMinutes();
+    if (notes[0].time == curDate) {
+      ctx.reply(`${notes[0].message}`);
+    }
+  }, 1000);
+  await next();
+});
+
 const post = new WizardScene(
   "post",
   (ctx) => {
